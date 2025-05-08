@@ -17,8 +17,6 @@
   z-index: 10;
 
   &__icon {
-    width: 120px;
-    height: 18px;
     transition: filter 0.3s;
 
     &:hover {
@@ -220,7 +218,8 @@
 .person {
   cursor: pointer;
   transition: transform 0.2s;
-
+  padding-right: 20px;
+  padding-left: 20px;
   &:hover {
     transform: scale(1.1);
   }
