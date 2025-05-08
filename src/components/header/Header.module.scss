@@ -1,0 +1,227 @@
+.container {
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* Логотип */
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  &__icon {
+    width: 120px;
+    height: 18px;
+    transition: filter 0.3s;
+
+    &:hover {
+      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+    }
+  }
+  &__icon_mobile {
+    display: none;
+  }
+
+  @media (max-width: 805px) {
+    left: 20px;
+    transform: none;
+    &__icon_mobile {
+      display: block;
+    }
+    &__icon_desktop {
+      display: none;
+    }
+  }
+}
+
+/* Бургер-меню */
+.burger {
+  display: none;
+  width: 24px;
+  height: 18px;
+  position: relative;
+  cursor: pointer;
+  z-index: 100;
+
+  @media (max-width: 805px) {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+.burgerLine {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease;
+
+  &:nth-child(1) {
+    top: 0;
+  }
+  &:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &:nth-child(3) {
+    bottom: 0;
+  }
+}
+
+.burgerLine1Open {
+  top: 50% !important;
+  transform: translateY(-50%) rotate(45deg) !important;
+}
+
+.burgerLine2Open {
+  opacity: 0;
+}
+
+.burgerLine3Open {
+  bottom: 50% !important;
+  transform: translateY(50%) rotate(-45deg) !important;
+}
+
+/* Боковая панель */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 80;
+  display: none;
+
+  @media (max-width: 805px) {
+    display: block;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100vh;
+  background-color: #111;
+  z-index: 90;
+  transition: right 0.3s ease;
+  padding-top: 60px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+
+  &.sidebarOpen {
+    right: 0;
+  }
+}
+
+.sidebarContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileSearch {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  input {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: #222;
+    color: white;
+    border: none;
+  }
+  @media (max-width: 805px) {
+    display: block;
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 20px;
+}
+
+.mobileNavLink {
+  font-size: 20px;
+  color: white;
+  font-size: 16px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #aaa;
+  }
+}
+
+.mobilePerson {
+  font-size: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+/* Десктопный контент */
+.desktopContent {
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  @media (max-width: 805px) {
+    display: none;
+  }
+}
+
+.search {
+  flex: 1;
+  max-width: 300px;
+
+  input {
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 4px;
+    border: none;
+    transition: box-shadow 0.3s;
+
+    &:focus {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.nav_content {
+  margin-left: auto;
+  margin-right: 30px;
+
+  nav {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #ccc;
+  }
+}
+
+.person {
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
